@@ -18,15 +18,15 @@ class mainTest {
     }
     @Test
     void K번째수출력(){
-        System.out.println();
         int[] result = new int[commands.length];
         for(int i=0;i<commands.length;i++){
             result[i] = answer(this.array, commands[i]);
         }
+        System.out.println(Arrays.toString(result));
     }
     int answer(int[] array, int[] command){
         int[] arr = Arrays.copyOfRange(array,command[0]-1,command[1]);
-        System.out.println(Arrays.toString(arr));
-        return 0;
+        Arrays.sort(arr);
+        return arr[command[2]-1];
     }
 }
