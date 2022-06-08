@@ -39,7 +39,7 @@ class mainTest {
 //        System.out.println(hashtable.keySet());
         for(String t : participant){
             if(hashtable.get(t)!=null){
-                System.out.println(t);
+                assertThat(t).isEqualTo("leo");
             }
         }
     }
