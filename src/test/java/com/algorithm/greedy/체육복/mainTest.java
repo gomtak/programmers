@@ -3,6 +3,9 @@ package com.algorithm.greedy.체육복;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.stream.IntStream;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class mainTest {
@@ -18,9 +21,8 @@ class mainTest {
     @Test
     void 들을수있는학생수(){
         int result = n-lost.length;
-
-
-//        result = 5;
-        System.out.println(result);
+        System.out.println(Arrays.binarySearch(lost,4));
+//        Arrays.stream(lost)
+//                .map();
     }
 }
