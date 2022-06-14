@@ -7,11 +7,9 @@ import java.util.*;
 
 class mainTest {
     String[] phone_book;
-    LinkedList<Hashtable>[] list;
     @BeforeEach
     void setUp() {
         phone_book = new String[]{"123", "456", "789"};
-        list = new LinkedList[phone_book.length];
     }
     @Test
     void 전화번호부확인(){
@@ -24,16 +22,24 @@ class mainTest {
             if(minLength==0||i.length()<minLength)
                 minLength = i.length();
         }
-        System.out.println(phone_book[0].substring(0,1));
-        LinkedList<String>[] linkedLists = getHashTable(phone_book,minLength);
+        Hashtable<String,ArrayList<String>> hashtable = getHashTable(phone_book,minLength);
+        if(phone_book.length != hashtable.size())
+            return false;
         return true;
     }
 
-    private LinkedList<String>[] getHashTable(String[] phone_book, int minLength) {
-        LinkedList<String>[] result = new LinkedList[phone_book.length];
-
+    private Hashtable<String,ArrayList<String>> getHashTable(String[] phone_book, int minLength) {
+        Hashtable<String,ArrayList<String>> result = new Hashtable<>();
         for(String s: phone_book){
-
+            if(result.get(s.substring(0,minLength))==null){
+                ArrayList<String> temp = new ArrayList<>();
+                temp.add(s);
+                result.put(s.substring(0,minLength),temp);
+            }else{
+                ArrayList<String> temp = result.get(s.substring(0,minLength));
+                temp.add(s);
+                result.put(s.substring(0,minLength),temp);
+            }
         }
 
         return result;
@@ -49,4 +55,13 @@ class mainTest {
 //        }
 //        return true;
 //    }
+    private static class Node {
+        private String key;
+        private String value;
+
+        private Node(String key, String value) {
+            this.key = key;
+            this.value = value;
+        }
+    }
 }
