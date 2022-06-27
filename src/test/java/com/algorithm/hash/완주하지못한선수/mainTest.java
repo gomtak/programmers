@@ -3,12 +3,7 @@ package com.algorithm.hash.완주하지못한선수;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import static org.assertj.core.api.Assertions.assertThat;
+import java.util.*;
 
 class mainTest {
     String[] participant;
@@ -27,6 +22,7 @@ class mainTest {
 
     @Test
     void 완주하지못한사람해쉬(){
-
+        participant;
+        Map<String, Integer> map = new HashMap<>();
     }
 }
